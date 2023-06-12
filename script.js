@@ -1,6 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { createParser } = require('eventsource-parser');
+require('dotenv').config();
 
 
 async function getArchiveLinks() {
@@ -54,7 +55,7 @@ async function fetchEssay(url) {
   }
 
 async function OpenAIStream(payload) {
-    const OPENAI_API_KEY="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"
+    const OPENAI_API_KEY=process.env.OPENAI_API_KEY
     const encoder = new TextEncoder();
     const decoder = new TextDecoder();
   
